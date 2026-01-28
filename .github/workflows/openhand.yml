@@ -96,8 +96,8 @@ jobs:
 
         - name: Run PR review
           env:
-              LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
-              GITHUB_TOKEN: ${{ secrets.TOKEN }}
+              LLM_API_KEY: ${{ secrets.OPENHAND_API_KEY }}
+              GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
           run: |
               # Change to the PR repository directory so agent can analyze the code
               cd pr-repo
