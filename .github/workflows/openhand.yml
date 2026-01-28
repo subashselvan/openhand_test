@@ -34,7 +34,7 @@ jobs:
         # Review style: 'standard' for pragmatic review, 'roasted' for Linus-style
         REVIEW_STYLE: standard
         # PR context will be automatically provided by the agent script
-        PR_NUMBER: ${{ github.event.pull_request.number || '3' }}
+        PR_NUMBER: ${{ github.event.pull_request.number || '2' }}
         PR_TITLE: ${{ github.event.pull_request.title || 'Local Run' }}
         PR_BODY: ${{ github.event.pull_request.body || 'No PR body' }}
         PR_BASE_BRANCH: ${{ github.event.pull_request.base.ref || 'main' }}
@@ -79,7 +79,7 @@ jobs:
 
         - name: Check required configuration
           env:
-              LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+              LLM_API_KEY: ${{ secrets.OPENHAND_API_KEY }}
           run: |
               if [ -z "$LLM_API_KEY" ]; then
                 echo "Error: LLM_API_KEY secret is not set."
