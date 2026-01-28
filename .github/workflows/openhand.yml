@@ -29,8 +29,8 @@ jobs:
 
     env:
         # Configuration (modify these values as needed)
-        LLM_MODEL: <YOUR_LLM_MODEL>
-        LLM_BASE_URL: <YOUR_LLM_BASE_URL>
+        LLM_MODEL: 'litellm_proxy/claude-opus-4-5-20251101'
+        LLM_BASE_URL: 'https://llm-proxy.app.all-hands.dev'
         # Review style: 'standard' for pragmatic review, 'roasted' for Linus-style
         REVIEW_STYLE: standard
         # PR context will be automatically provided by the agent script
