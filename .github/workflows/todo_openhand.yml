@@ -155,6 +155,11 @@ jobs:
 
             - name: Copy agent files
               run: |
+                  cd software-agent-sdk
+                  echo "CWD:"
+                  pwd
+                  echo "Files here:"
+                  ls -la
                   cp examples/03_github_workflows/03_todo_management/agent_script.py agent.py
                   cp examples/03_github_workflows/03_todo_management/prompt.py prompt.py
                   chmod +x agent.py
