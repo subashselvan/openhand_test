@@ -53,10 +53,16 @@ jobs:
               with:
                   python-version: '3.13'
 
-            # - name: Copy TODO scanner
-            #   run: |
-            #       cp examples/03_github_workflows/03_todo_management/scanner.py /tmp/scanner.py
-            #       chmod +x /tmp/scanner.py
+            - name: Checkout software-agent-sdk repository
+              uses: actions/checkout@v4
+              with:
+                  repository: OpenHands/software-agent-sdk
+                  path: software-agent-sdk
+
+            - name: Copy TODO scanner
+              run: |
+                  cp examples/03_github_workflows/03_todo_management/scanner.py /tmp/scanner.py
+                  chmod +x /tmp/scanner.py
 
             - name: Scan for TODOs
               id: scan
@@ -65,8 +71,7 @@ jobs:
 
                   # Run the scanner and capture output
                   TODO_IDENTIFIER="${{ github.event.inputs.todo_identifier || 'TODO(openhands)' }}"
-                  # python /tmp/scanner.py . --identifier "$TODO_IDENTIFIER" > todos.json
-                  python .github/scripts/scanner.py . --identifier "$TODO_IDENTIFIER" > todos.json
+                  python /tmp/scanner.py . --identifier "$TODO_IDENTIFIER" > todos.json
 
                   # Count TODOs
                   TODO_COUNT=$(python -c \
