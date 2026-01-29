@@ -15,23 +15,10 @@
 name: Automated TODO Management
 
 on:
-  # Manual trigger
-    workflow_dispatch:
-        inputs:
-            max_todos:
-                description: Maximum number of TODOs to process in this run
-                required: false
-                default: '3'
-                type: string
-            todo_identifier:
-                description: TODO identifier to search for (e.g., TODO(openhands))
-                required: false
-                default: TODO(openhands)
-                type: string
-
-  # Trigger when 'automatic-todo' label is added to a PR
-    pull_request:
-        types: [labeled]
+    issue_comment:
+      types: [created]
+    pull_request_review_comment:
+      types: [created]
 
   # Scheduled trigger (disabled by default, uncomment and customize as needed)
   # schedule:
@@ -47,10 +34,11 @@ jobs:
     scan-todos:
         runs-on: ubuntu-latest
     # Only run if triggered manually or if 'automatic-todo' label was added
-        if: >
-            github.event_name == 'workflow_dispatch' ||
-            (github.event_name == 'pull_request' &&
-             github.event.label.name == 'automatic-todo')
+        if: |
+            contains(github.event.comment.body, '/oh') ||
+            startsWith(github.event.comment.body, '/oh') ||
+            contains(github.event.comment.body, ' /openhands') ||
+            startsWith(github.event.comment.body, '/openhands')
         outputs:
             todos: ${{ steps.scan.outputs.todos }}
             todo-count: ${{ steps.scan.outputs.todo-count }}
