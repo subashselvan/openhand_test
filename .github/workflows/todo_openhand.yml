@@ -134,8 +134,8 @@ jobs:
 
             - name: Switch to feature branch with TODO management files
               run: |
-                  git checkout openhands/todo-management-example
-                  git pull origin openhands/todo-management-example
+                  git checkout opencode/issue1-20260128130431
+                  git pull origin opencode/issue1-20260128130431
 
             - name: Set up Python
               uses: actions/setup-python@v5
