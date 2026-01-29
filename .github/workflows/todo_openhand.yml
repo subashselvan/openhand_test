@@ -152,7 +152,13 @@ jobs:
                   # Install OpenHands SDK and tools from git repository
                   uv pip install --system "openhands-sdk @ git+https://github.com/OpenHands/agent-sdk.git@main#subdirectory=openhands-sdk"
                   uv pip install --system "openhands-tools @ git+https://github.com/OpenHands/agent-sdk.git@main#subdirectory=openhands-tools"
-
+            
+            - name: Checkout software-agent-sdk repository
+              uses: actions/checkout@v4
+              with:
+                  repository: OpenHands/software-agent-sdk
+                  path: software-agent-sdk
+            
             - name: Copy agent files
               run: |
                   cd software-agent-sdk
