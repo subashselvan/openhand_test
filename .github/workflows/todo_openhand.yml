@@ -61,6 +61,10 @@ jobs:
 
             - name: Copy TODO scanner
               run: |
+                  echo "CWD:"
+                  pwd
+                  echo "Files here:"
+                  ls -la
                   cp examples/03_github_workflows/03_todo_management/scanner.py /tmp/scanner.py
                   chmod +x /tmp/scanner.py
 
