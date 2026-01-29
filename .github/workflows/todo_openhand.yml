@@ -159,16 +159,16 @@ jobs:
                   repository: OpenHands/software-agent-sdk
                   path: software-agent-sdk
             
-            - name: Copy agent files
-              run: |
-                  cd software-agent-sdk
-                  echo "CWD:"
-                  pwd
-                  echo "Files here:"
-                  ls -la
-                  cp examples/03_github_workflows/03_todo_management/agent_script.py agent.py
-                  cp examples/03_github_workflows/03_todo_management/prompt.py prompt.py
-                  chmod +x agent.py
+            # - name: Copy agent files
+            #   run: |
+            #       cd software-agent-sdk
+            #       echo "CWD:"
+            #       pwd
+            #       echo "Files here:"
+            #       ls -la
+            #       cp examples/03_github_workflows/03_todo_management/agent_script.py agent.py
+            #       cp examples/03_github_workflows/03_todo_management/prompt.py prompt.py
+            #       chmod +x agent.py
 
             - name: Configure Git
               run: |
@@ -233,7 +233,7 @@ jobs:
                   # Run the agent with comprehensive logging
                   echo "Starting agent execution..."
                   set +e  # Don't exit on error, we want to capture it
-                  uv run python software-agent-sdk/agent.py "$TODO_JSON" 2>&1 | tee agent_output.log
+                  uv run python examples/03_github_workflows/03_todo_management/agent_script.py "$TODO_JSON" 2>&1 | tee agent_output.log
                   AGENT_EXIT_CODE=$?
                   set -e
 
