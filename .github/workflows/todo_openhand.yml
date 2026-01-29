@@ -61,6 +61,7 @@ jobs:
 
             - name: Copy TODO scanner
               run: |
+                  cd software-agent-sdk
                   echo "CWD:"
                   pwd
                   echo "Files here:"
