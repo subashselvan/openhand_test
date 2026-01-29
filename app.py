@@ -4,7 +4,7 @@ from starlette.routing import Route
 from starlette.middleware import Middleware
 from starlette.middleware.cors import CORSMiddleware
 
-# TODO(openhands): move all rest api functions into a separate Python file
+# TODO(openhands): move this function to a separate module
 async def homepage(request):
     return JSONResponse({"message": "Welcome to Starlette Application!"})
 
