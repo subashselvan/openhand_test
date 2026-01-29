@@ -1,0 +1,13 @@
+[project]
+name = "starlette-app"
+version = "0.1.0"
+description = "A Starlette web application"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "starlette>=0.52.1",
+    "uvicorn>=0.40.0",
+]
+
+[project.scripts]
+start = "server:main"
