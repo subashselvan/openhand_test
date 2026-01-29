@@ -229,6 +229,7 @@ jobs:
                   echo "  GITHUB_TOKEN: ${GITHUB_TOKEN:+[SET]}"
                   echo "Available files:"
                   ls -la
+                  cd software-agent-sdk
 
                   # Run the agent with comprehensive logging
                   echo "Starting agent execution..."
