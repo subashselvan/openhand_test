@@ -157,7 +157,7 @@ jobs:
               uses: actions/checkout@v4
               with:
                   repository: OpenHands/software-agent-sdk
-                  path: software-agent-sdk
+                  path: ./
             
             # - name: Copy agent files
             #   run: |
