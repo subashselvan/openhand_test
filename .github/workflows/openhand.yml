@@ -16,10 +16,10 @@ on:
 jobs:
   pr-review:
     if: |
-      contains(github.event.comment.body, '/oh') ||
-      startsWith(github.event.comment.body, '/oh') ||
-      contains(github.event.comment.body, ' /openhands') ||
-      startsWith(github.event.comment.body, '/openhands')
+      contains(github.event.comment.body, '/oh1') ||
+      startsWith(github.event.comment.body, '/oh1') ||
+      contains(github.event.comment.body, ' /openhands1') ||
+      startsWith(github.event.comment.body, '/openhands1')
     runs-on: ubuntu-latest
     permissions:
       id-token: write
