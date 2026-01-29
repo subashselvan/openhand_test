@@ -242,6 +242,7 @@ jobs:
                   echo "Agent output log:"
                   cat agent_output.log
 
+                  cd ..
                   # Show files in working directory
                   echo "Files in working directory:"
                   ls -la
