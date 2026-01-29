@@ -229,12 +229,11 @@ jobs:
                   echo "  GITHUB_TOKEN: ${GITHUB_TOKEN:+[SET]}"
                   echo "Available files:"
                   ls -la
-                  cd software-agent-sdk
 
                   # Run the agent with comprehensive logging
                   echo "Starting agent execution..."
                   set +e  # Don't exit on error, we want to capture it
-                  uv run python agent.py "$TODO_JSON" 2>&1 | tee agent_output.log
+                  uv run python software-agent-sdk/agent.py "$TODO_JSON" 2>&1 | tee agent_output.log
                   AGENT_EXIT_CODE=$?
                   set -e
 
@@ -242,7 +241,6 @@ jobs:
                   echo "Agent output log:"
                   cat agent_output.log
 
-                  cd ..
                   # Show files in working directory
                   echo "Files in working directory:"
                   ls -la
